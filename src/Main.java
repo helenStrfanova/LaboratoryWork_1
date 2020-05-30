@@ -3,7 +3,7 @@ import java.io.File;
 /**
  * Classname Main
  * <p>
- * Version info 1
+ * Version info 2
  * <p>
  * Copyright Alyona Sviridova NTU KhPI
  */
@@ -50,87 +50,87 @@ public class Main {
          *
          * TASK 1 Find the longest word in the above text
          *
-         *
-         String[] words = cleanedText.split(" ");
-         String longestWord = "";
+         **/
+        String cleanedTextForTask1 = cleanedText;
+        String[] words = cleanedTextForTask1.split(" ");
+        String longestWord = "";
 
-         for (int i = 0; i < words.length; i++) {
+        for (int i = 0; i < words.length; i++) {
 
-         if (words[i].length() > longestWord.length())
-         longestWord = words[i];
-         }
+            if (words[i].length() > longestWord.length())
+                longestWord = words[i];
+        }
 
-         System.out.println(longestWord + " word consist of " + longestWord.length() + " letters"); */
+        System.out.println(longestWord + " word consist of " + longestWord.length() + " letters");
 
 
         /**
          *
          * TASK 2 Count the lines where the word "Harry" is met
          *
-         *
-         String[] lines = cleanedText.split("\\n");
-         int wordMet = 0;
-         int count = 0;
+         * */
+        String[] lines = cleanedText.split("\\n");
+        int wordMet = 0;
+        int count = 0;
 
-         for (int i = 0; i < lines.length; i++) {
-         wordMet = lines[i].indexOf("Harry".toLowerCase());
-         if (wordMet != 0)
-         count++;
-         }
-         System.out.println("In " + count + " lines" + " word 'Harry' met"); */
+        for (int i = 0; i < lines.length; i++) {
+            wordMet = lines[i].indexOf("Harry".toLowerCase());
+            if (wordMet != 0)
+                count++;
+        }
+        System.out.println("In " + count + " lines" + " word 'Harry' met");
 
         /**
          *
          * TASK 3 Take   array of distinct words from Harry Potter. Create an array of hashes(hash code of words).
          *
-         * */
+         **/
 
-        String[] wordsForDistinct = cleanedText.split(" ");
+         String[] wordsForDistinct = cleanedText.split(" ");
 
-        String districtWords = "";
+         String districtWords = "";
 
-        for (int i = 0; i < wordsForDistinct.length; i++) {
+         for (int i = 0; i < wordsForDistinct.length; i++) {
 
-            if (!districtWords.contains(wordsForDistinct[i])) {
-                districtWords += " " + wordsForDistinct[i];
-            }
-        }
+         if (!districtWords.contains(wordsForDistinct[i])) {
+         districtWords += " " + wordsForDistinct[i];
+         }
+         }
 
-        String[] districtWordsArray = districtWords.split(" ");
-        int[] hashCodeForDistinctWords = new int[districtWordsArray.length];
+         String[] districtWordsArray = districtWords.split(" ");
+         int[] hashCodeForDistinctWords = new int[districtWordsArray.length];
 
-        for (int i = 0; i < districtWordsArray.length; i++) {
+         for (int i = 0; i < districtWordsArray.length; i++) {
 
-            hashCodeForDistinctWords[i] = districtWordsArray[i].hashCode();
+         hashCodeForDistinctWords[i] = districtWordsArray[i].hashCode();
 
-            System.out.println(districtWordsArray[i] + " HASH CODE "
-                    + hashCodeForDistinctWords[i]);
+         System.out.println(districtWordsArray[i] + " HASH CODE "
+         + hashCodeForDistinctWords[i]);
 
-        }
+         }
 
-        /**
-         *
+
+         /*
          * TASK 4 Count the intersections.
          *
-         * */
-        int intersections = 0;
-        int compareHash = 0;
+         **/
+         int intersections = 0;
+         int compareHash = 0;
 
-        for (int i = 0; i < hashCodeForDistinctWords.length; i++) {
+         for (int i = 0; i < hashCodeForDistinctWords.length; i++) {
 
-            compareHash = hashCodeForDistinctWords[i];
-            System.out.println(compareHash);
+         compareHash = hashCodeForDistinctWords[i];
 
-            for (int j = 0; j < hashCodeForDistinctWords.length; j++){
+         for (int j = 0; j < hashCodeForDistinctWords.length; j++){
 
-                if( compareHash == hashCodeForDistinctWords[j]){
+         if( compareHash == hashCodeForDistinctWords[j]){
 
-                    intersections++;
+         intersections++;
 
-                }
-            }
-            intersections--;
-        }
-        System.out.println("Amount intersections = " + intersections);
+         }
+         }
+         intersections--;
+         }
+         System.out.println("Amount intersections = " + intersections);
     }
 }
